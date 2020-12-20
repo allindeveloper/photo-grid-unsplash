@@ -1,15 +1,40 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import { BrowserRouter, Router } from "react-router-dom";
+import * as Constants from "./Constants";
+import { Service } from "./Services";
+import * as serviceWorker from "./serviceWorker";
+import Layout from "./components/hoc/Layout";
+import history from "./history";
+import Axios from "axios";
+import reportWebVitals from './reportWebVitals';
+import config from './config'
+import "./index.css";
+
+const instance = Axios.create({
+  baseURL: "",
+  headers: {},
+});
+
+
+
+      const url  = process.env.REACT_APP_BASE_URI
+      console.log("ur goten",url)
+      ReactDOM.render(
+        <Router history={history} basename={config.basename}>
+            <>
+              {" "}
+              <Layout
+                Constants={Constants}
+                Service={Service.bind(null, url, Axios)}
+              />
+            </>
+          </Router>,
+        document.getElementById('root')
+      );
+
+      serviceWorker.register();
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
