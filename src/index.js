@@ -20,7 +20,6 @@ const instance = Axios.create({
 
 
       const url  = process.env.REACT_APP_BASE_URI
-      console.log("ur goten",url)
       ReactDOM.render(
         <Router history={history} basename={config.basename}>
             <>
