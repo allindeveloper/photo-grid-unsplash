@@ -15,6 +15,7 @@ const ImageGrid = (props) => {
     return (
       <InfiniteScroll
         loadMore={loadMore}
+        initialLoad={false}
         hasMore={hasMore}
         loader={<GridLoader />}
         threshold={threshold}

@@ -4,7 +4,7 @@ export const Container = styled.div`
   margin: auto;
   padding: 0 20px;
   margin-top: 20px;
-  max-width: 612px;
+  max-width: 912px;
   column-count: 3;
   -webkit-column-count: 3; 
   -moz-column-count: 3;

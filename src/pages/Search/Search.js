@@ -43,7 +43,8 @@ const Home = (props) => {
   };
 
   React.useEffect(() => {
-   loadPhotos()
+    console.log("props in hme", props);
+    // loadPhotos()
   }, []);
   return (
     <Aux>
