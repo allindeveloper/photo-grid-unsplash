@@ -40,6 +40,14 @@ export const ItemBottomContainer = styled.div`
   bottom: 0;
   margin-bottom: 5px;
 `
+export const ItemName = styled.span`
+  display: flex;
+  align-self: center;
+  margin-left: 16px;
+  text-align: left;
+  color: #eee;
+  font-weight: 800;
+`
 
 export const ItemUser = styled.div`
   display: flex;
@@ -52,11 +60,4 @@ export const ItemUserPicture = styled.img`
   border-radius: 16px;
   margin-left: 16px;
 `
-export const ItemName = styled.span`
-  display: flex;
-  align-self: center;
-  margin-left: 16px;
-  text-align: left;
-  color: #eee;
-  font-weight: 800;
-`
+

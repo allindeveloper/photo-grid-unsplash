@@ -1,18 +1,11 @@
-import React from 'react'
-import {Helmet} from "react-helmet";
+import React, { Fragment } from "react";
 
-const Aux = (props) =>{
-    return(
+const Aux = (props) => {
+  return (
     <>
-            <Helmet>
-                <meta charSet="utf-8" />
-                <link rel="manifest" href="/manifest.json" />
-      <meta name="theme-color" content="#E53012"/>
-                <title>{props.title}</title>
-            </Helmet>
-            {props.children}
-        </>
-    )
+      <Fragment>{props.children}</Fragment>
+    </>
+  );
 };
 
 export default Aux;

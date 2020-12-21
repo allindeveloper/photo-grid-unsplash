@@ -1,6 +1,5 @@
 import React from "react";
 import { FaSearch } from "react-icons/fa";
-
 import "./input.scoped.scss";
 const TextInput = (props) => {
   return (

@@ -4,7 +4,6 @@ import { Container } from "./styles"
 
 import ImageItem from "./ImageItem"
 import GridLoader from "../Loader/GridLoader"
-import CustomModal from "../Modal/CustomModal"
 import PhotoModal from "../Modal/PhotoModal"
 const ImageGrid = (props) => {
   
@@ -39,12 +38,7 @@ const ImageGrid = (props) => {
       </InfiniteScroll>
 
       
-      {/* {Object.keys(data).length >0&&<CustomModal
-      toggleModal={toggleModal} 
-      data={data}
-      show={show}
-      />} */}
-      {Object.keys(data).length >0&&<PhotoModal
+     {Object.keys(data).length >0&&<PhotoModal
       toggleModal={toggleModal} 
       data={data}
       show={show}

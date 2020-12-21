@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import ImageGrid from "../../components/Image/ImageGrid";
-import TextInput from "../../components/Input/TextInput";
 import GridLoader from "../../components/Loader/GridLoader";
 import Aux from "../../components/hoc/_Aux";
 import "./search.scoped.scss";
@@ -47,7 +46,6 @@ const Search = (props) => {
   };
 
   React.useEffect(() => {
-    console.log("props in search", props);
     loadPhotos()
   }, []);
   return (

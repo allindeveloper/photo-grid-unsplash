@@ -5,10 +5,7 @@ import GridLoader from "../../components/Loader/GridLoader";
 import Aux from "../../components/hoc/_Aux";
 import "./home.scoped.scss";
 import SpaceBottom from "../../components/Space/SpaceBottom";
-import _ from 'lodash'
-import { withRouter } from "react-router-dom";
 const Home = (props) => {
-  console.log("props in home", props);
   const ImageService = props.Service(null, null);
   const initialHomeState = {
     data: { photos: [] },
@@ -48,26 +45,14 @@ const Home = (props) => {
    loadPhotos()
   }, []);
 
-  const delayedQuery = useRef(_.debounce(q => sendQuery(q), 500)).current;
   const handleInputChange = e => {
     setUserQuery(e.target.value);
-    delayedQuery(e.target.value);
   };
 
-  const sendQuery = query => {
-    console.log(`Querying for ${query}`)
-    setUserQuery(query)
-    setState((prevState) => {
-      return {
-        ...prevState,
-        loading: true,
-      };
-    });
-  };
+
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
-      console.log('do validate');
       props.history.push({
         pathname:"/search/result",
         state:{
