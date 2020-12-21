@@ -4,7 +4,7 @@ input[type="text"] {
     border-radius: .3rem;
     margin: 8px 0;
     outline: none;
-    padding: 18px;
+    padding: 20px;
     box-sizing: border-box;
     transition: 0.3s;
   }
@@ -18,7 +18,7 @@ input[type="text"] {
   }
   
   .inputWithIcon input[type="text"] {
-    padding-left: 40px;
+    padding-left: 70px;
   }
   
   .inputWithIcon {
@@ -27,11 +27,12 @@ input[type="text"] {
   
   .inputWithIcon i {
     position: absolute;
-    left: 0;
-    top: 12px;
-    padding: 9px 8px;
+    left: 5px;
+    top: 11px;
+    padding: 1rem;
     color: #aaa;
     transition: 0.3s;
+    font-size: smaller;
   }
   
   .inputWithIcon input[type="text"]:focus + i {

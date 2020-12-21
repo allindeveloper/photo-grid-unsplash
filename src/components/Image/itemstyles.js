@@ -12,17 +12,9 @@ export const Item = styled.figure`
     transition: all 0.1s;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    border-radius:.5rem
-  }
-  &:hover {
-    img {
-      cursor: zoom-in;
-      filter: brightness(80%);
-    }
-
-    div {
-      display: block;
-    }
+    border-radius:.5rem;
+    cursor: zoom-in;
+    filter: brightness(80%);
   }
 `
 
@@ -31,7 +23,7 @@ export const Item = styled.figure`
 export const ItemBottomContainer = styled.div`
   height: 52px;
   width: 100%;
-  display: none;
+  display: block;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
