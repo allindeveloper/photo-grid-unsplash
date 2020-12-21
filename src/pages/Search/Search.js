@@ -12,9 +12,8 @@ const Search = (props) => {
   const SearchService = props.Service(null, null);
   const initialHomeState = {
     data: { photos: [] },
-    pageNumber: 1,
+    pageSize: 8,
     loading: location && location.state,
-    hasMore: true,
   };
 
   const [state, setState] = useState(initialHomeState);
@@ -24,7 +23,7 @@ const Search = (props) => {
     const { Constants } = props;
     const searchData = {
       pageNumber,
-      pageSize: 15,
+      pageSize:state.pageSize,
       query : location.state && location.state.userQuery
     };
     await SearchService.searchAllItems(
@@ -36,10 +35,9 @@ const Search = (props) => {
       .then((res) => {
         const { data } = res;
         setState({
-          data: { photos: state.data.photos.concat(data.results) },
-          pageNumber: pageNumber + 1,
+          data: { photos: data.results },
+          pageSize: state.pageSize + 1,
           loading: false,
-          hasMore: true,
         });
       })
       .catch((err) => alert(err));
@@ -51,13 +49,10 @@ const Search = (props) => {
   return (
     <Aux>
       <div className="jumbotron">
-        <SearchLabel value={location.state.userQuery}/>
+        <SearchLabel value={location.state.userQuery} loading={state.loading}/>
         <SpaceBottom length={50}/>
         <ImageGrid
-          loadMore={loadPhotos}
-          hasMore={state.hasMore}
           loader={<GridLoader />}
-          threshold={1000}
           photos={state.data.photos}
           loading={state.loading}
         />

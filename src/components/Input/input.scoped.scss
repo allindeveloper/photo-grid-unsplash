@@ -49,3 +49,16 @@ input[type="text"] {
     color: #fff;
     background-color: dodgerBlue;
   }
+
+  input::placeholder {
+    color: #455572;
+    opacity: 1; /* Firefox */
+  }
+  
+ input :-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: #455572;
+  }
+  
+  input ::-ms-input-placeholder { /* Microsoft Edge */
+   color: #455572;
+  }

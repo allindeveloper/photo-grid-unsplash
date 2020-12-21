@@ -21,7 +21,7 @@ export const Item = styled.figure`
     }
 
     div {
-      display: flex;
+      display: block;
     }
   }
 `
@@ -50,7 +50,7 @@ export const ItemName = styled.span`
 `
 
 export const ItemUser = styled.div`
-  display: flex;
+  display: block;
   flex-direction: row;
 `
 
@@ -59,5 +59,13 @@ export const ItemUserPicture = styled.img`
   height: 32px;
   border-radius: 16px;
   margin-left: 16px;
+`
+export const ItemLocation = styled.span`
+display: flex;
+  align-self: center;
+  margin-left: 16px;
+  text-align: left;
+  color: #DDE2E9;
+  font-weight: 600;
 `
 

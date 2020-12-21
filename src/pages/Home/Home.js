@@ -11,7 +11,6 @@ const Home = (props) => {
     data: { photos: [] },
     pageNumber: 1,
     loading: true,
-    hasMore: true,
   };
 
   const [state, setState] = useState(initialHomeState);
@@ -21,10 +20,12 @@ const Home = (props) => {
     const { Constants } = props;
     const searchData = {
       pageNumber,
-      pageSize: 15,
-      query : userQuery && userQuery
+      pageSize: 8,
+      query : userQuery == "" ? "African" : userQuery,
+      orderBy: "latest"
     };
-    await ImageService.getAllItems(
+    await ImageService.searchAllItems(
+      Constants.SEARCH,
       Constants.PHOTOS,
       Constants.UNSPLASH_CLIENT_ID,
       searchData
@@ -32,7 +33,7 @@ const Home = (props) => {
       .then((res) => {
         const { data } = res;
         setState({
-          data: { photos: state.data.photos.concat(data) },
+          data: { photos: data.results },
           pageNumber: pageNumber + 1,
           loading: false,
           hasMore: true,
@@ -72,10 +73,7 @@ const Home = (props) => {
         
 
         <ImageGrid
-          loadMore={loadPhotos}
-          hasMore={state.hasMore}
           loader={<GridLoader />}
-          threshold={1000}
           photos={state.data.photos}
           loading={state.loading}
         />

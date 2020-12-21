@@ -9,13 +9,13 @@ export const Container = styled.div`
   -webkit-column-count: 3; 
   -moz-column-count: 3;
   column-gap: 20px;
-  -webkit-column-gap: 20px; 
+  -webkit-column-gap: 30px; 
   -moz-column-gap: 20px; 
   /* column-count: ${(props) => props.columnCount};
   -webkit-column-count: ${(props) => props.columnCount}; 
   -moz-column-count: ${(props) => props.columnCount};
   column-gap: 20px;
-  -webkit-column-gap: 20px; 
+  -webkit-column-gap: 30px; 
   -moz-column-gap: 20px;  */
 
   @media (max-width: 1024px) {

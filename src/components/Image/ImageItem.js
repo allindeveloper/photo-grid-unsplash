@@ -1,26 +1,23 @@
-import React from "react"
+import React from "react";
 import {
   Item,
   ItemBottomContainer,
-  ItemUser,
-  ItemUserPicture,
+  ItemLocation,
   ItemName,
-} from "./itemstyles"
+} from "./itemstyles";
 
 const ImageItem = (props) => {
-return (
-    <div onClick={()=>props.updateData(props.photo)}><Item {...props}>
-      
-      <ItemBottomContainer>
-        <ItemUser>
-          <ItemUserPicture src={props.photo.user.profile_image.medium} alt={props.photo.alt_description} />
+  return (
+    <div onClick={() => props.updateData(props.photo)}>
+      <Item {...props}>
+        <ItemBottomContainer>
           <ItemName>{props.photo.user.name}</ItemName>
-        </ItemUser>
-      </ItemBottomContainer>
-      <img loading="lazy" src={props.photo.urls.small} alt="" />
-    </Item>
+          <ItemLocation>{props.photo.user.location}</ItemLocation>
+        </ItemBottomContainer>
+        <img loading="lazy" src={props.photo.urls.small} alt="" />
+      </Item>
     </div>
-  )
-}
+  );
+};
 
-export default ImageItem
+export default ImageItem;

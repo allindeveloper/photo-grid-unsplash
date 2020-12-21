@@ -12,7 +12,6 @@ export class Layout extends React.Component {
   
 
   render() {
-    console.log("props in layout",this.props)
     return (
       <Aux>
           <Switch>
