@@ -3,16 +3,18 @@ import ImageGrid from "../../components/Image/ImageGrid";
 import TextInput from "../../components/Input/TextInput";
 import GridLoader from "../../components/Loader/GridLoader";
 import Aux from "../../components/hoc/_Aux";
-import "./home.scoped.scss";
+import "./search.scoped.scss";
 import SpaceBottom from "../../components/Space/SpaceBottom";
+import { SearchLabel } from "../../components/Label/SearchLabel";
 
-const Home = (props) => {
-  console.log("props in home", props);
-  const ImageService = props.Service(null, null);
+const Search = (props) => {
+  console.log("props in search", props);
+  const {location} = props
+  const SearchService = props.Service(null, null);
   const initialHomeState = {
     data: { photos: [] },
     pageNumber: 1,
-    loading: true,
+    loading: location && location.state,
     hasMore: true,
   };
 
@@ -24,8 +26,10 @@ const Home = (props) => {
     const searchData = {
       pageNumber,
       pageSize: 15,
+      query : location.state && location.state.userQuery
     };
-    await ImageService.getAllItems(
+    await SearchService.searchAllItems(
+      Constants.SEARCH,
       Constants.PHOTOS,
       Constants.UNSPLASH_CLIENT_ID,
       searchData
@@ -33,7 +37,7 @@ const Home = (props) => {
       .then((res) => {
         const { data } = res;
         setState({
-          data: { photos: state.data.photos.concat(data) },
+          data: { photos: state.data.photos.concat(data.results) },
           pageNumber: pageNumber + 1,
           loading: false,
           hasMore: true,
@@ -43,13 +47,13 @@ const Home = (props) => {
   };
 
   React.useEffect(() => {
-    console.log("props in hme", props);
-    // loadPhotos()
+    console.log("props in search", props);
+    loadPhotos()
   }, []);
   return (
     <Aux>
       <div className="jumbotron">
-        <TextInput placeholder="Search for photo" />
+        <SearchLabel value={location.state.userQuery}/>
         <SpaceBottom length={50}/>
         <ImageGrid
           loadMore={loadPhotos}
@@ -57,9 +61,10 @@ const Home = (props) => {
           loader={<GridLoader />}
           threshold={1000}
           photos={state.data.photos}
+          loading={state.loading}
         />
       </div>
     </Aux>
   );
 };
-export default Home;
+export default Search;

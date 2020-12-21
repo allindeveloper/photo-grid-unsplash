@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import { BrowserRouter, Router } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import * as Constants from "./Constants";
 import { Service } from "./Services";
 import * as serviceWorker from "./serviceWorker";
@@ -21,7 +21,7 @@ const instance = Axios.create({
 
       const url  = process.env.REACT_APP_BASE_URI
       ReactDOM.render(
-        <Router history={history} basename={config.basename}>
+        <BrowserRouter history={history} basename={config.basename}>
             <>
               {" "}
               <Layout
@@ -29,7 +29,7 @@ const instance = Axios.create({
                 Service={Service.bind(null, url, Axios)}
               />
             </>
-          </Router>,
+          </BrowserRouter>,
         document.getElementById('root')
       );
 

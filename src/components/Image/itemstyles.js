@@ -26,18 +26,7 @@ export const Item = styled.figure`
   }
 `
 
-export const ItemTopButtons = styled.div`
-  display: none;
-  min-width: 155px;
-  height: 52px;
-  justify-content: space-evenly;
-  align-items: center;
-  align-self: flex-end;
-  margin-right: 11px;
-  position: absolute;
-  z-index: 9;
-  right: 0;
-`
+
 
 export const ItemBottomContainer = styled.div`
   height: 52px;
@@ -57,13 +46,13 @@ export const ItemUser = styled.div`
   flex-direction: row;
 `
 
-export const ItemUserProfilePicture = styled.img`
+export const ItemUserPicture = styled.img`
   width: 32px;
   height: 32px;
   border-radius: 16px;
   margin-left: 16px;
 `
-export const ItemUserProfileName = styled.span`
+export const ItemName = styled.span`
   display: flex;
   align-self: center;
   margin-left: 16px;

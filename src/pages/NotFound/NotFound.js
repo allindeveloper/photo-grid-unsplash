@@ -12,7 +12,7 @@ const  NotFound  = (props) =>{
                 <h1>Oops!</h1>
                 <h2>404 - The Page can't be found</h2>
               </div>
-              <a href="#!" onClick={this.props.history.goBack}>Go Back</a>
+              <a href="#!" onClick={props.history.goBack}>Go Back</a>
             </div>
             </div>
         

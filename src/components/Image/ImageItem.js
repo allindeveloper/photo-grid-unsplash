@@ -1,28 +1,28 @@
 import React from "react"
 import {
   Item,
-  ItemOverlay,
   ItemTopButtons,
   ItemBottomContainer,
   ItemUser,
-  ItemUserProfilePicture,
-  ItemUserProfileName,
+  ItemUserPicture,
+  ItemName,
 } from "./itemstyles"
 
 const ImageItem = (props) => {
-  return (
-    <Item {...props}>
-      <ItemTopButtons>
-        </ItemTopButtons>
 
+  console.log("props imageite,",props)
+  return (
+    <a href="#popup1" onClick={()=>props.updateData(props.photo)}><Item {...props}>
+      
       <ItemBottomContainer>
         <ItemUser>
-          <ItemUserProfilePicture src={props.photo.user.profile_image.medium} alt={props.photo.alt_description} />
-          <ItemUserProfileName>{props.photo.user.name}</ItemUserProfileName>
+          <ItemUserPicture src={props.photo.user.profile_image.medium} alt={props.photo.alt_description} />
+          <ItemName>{props.photo.user.name}</ItemName>
         </ItemUser>
       </ItemBottomContainer>
-      <img loading="lazy" src={props.photo.urls.regular} alt="" />
+      <img loading="lazy" src={props.photo.urls.small} alt="" />
     </Item>
+    </a>
   )
 }
 
